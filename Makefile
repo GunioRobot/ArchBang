@@ -21,18 +21,18 @@ all: archbang
 
 rem:
 	$(SHELL) "$(PWD)"/scripts/fetch-pkg.sh
-	
+
 # The following will first run the base-fs routine before creating the final iso image.
-archbang: rem base-fs 
+archbang: rem base-fs
 	touch "$(FULLNAME)".iso
 	rm -r "$(FULLNAME)".iso
 	mkarchiso -v -p syslinux iso "$(WORKDIR)" "$(FULLNAME)".iso
 
-# This is the main rule for make the working filesystem. It will run routines from left to right. 
+# This is the main rule for make the working filesystem. It will run routines from left to right.
 # Thus, root-image is called first and syslinux is called last.
 base-fs: root-image boot-files initcpio overlay iso-mounts syslinux
 
-# The root-image routine is always executed first. 
+# The root-image routine is always executed first.
 # It only downloads and installs all packages into the $WORKDIR, giving you a basic system to use as a base.
 root-image: "$(WORKDIR)"/root-image/.arch-chroot
 "$(WORKDIR)"/root-image/.arch-chroot:
@@ -40,7 +40,7 @@ root-image:
 	mkarchiso -v -p $(PACKAGES) create "$(WORKDIR)"
 
 # Rule for make /boot
-boot-files: 
+boot-files:
 	cp -r "$(WORKDIR)"/root-image/boot "$(WORKDIR)"/iso/
 	cp -r boot-files/* "$(WORKDIR)"/iso/boot/
 
@@ -56,24 +56,24 @@ overlay:
 	cp -r overlay "$(WORKDIR)"/
 	chmod 0440 "$(WORKDIR)"/overlay/etc/sudoers
 	wget -O "$(WORKDIR)"/overlay/etc/pacman.d/mirrorlist http://www.archlinux.org/mirrorlist/$(ARCH)/all/
-	sed -i "s/#Server/Server/g" "$(WORKDIR)"/overlay/etc/pacman.d/mirrorlist	
+	sed -i "s/#Server/Server/g" "$(WORKDIR)"/overlay/etc/pacman.d/mirrorlist
 #	chmod 0440 "$(WORKDIR)"/root-image/etc/sudoers
 # Rule to process isomounts file.
 iso-mounts: "$(WORKDIR)"/isomounts
 "$(WORKDIR)"/isomounts: isomounts root-image
 	sed "s|@ARCH@|$(ARCH)|g" isomounts > $@
 
-# This routine is always executed just before generating the actual image. 
+# This routine is always executed just before generating the actual image.
 syslinux:
 	mkdir -p $(WORKDIR)/iso/boot/isolinux
 	cp $(WORKDIR)/root-image/usr/lib/syslinux/*.c32 $(WORKDIR)/iso/boot/isolinux/
-	cp $(WORKDIR)/root-image/usr/lib/syslinux/isolinux.bin $(WORKDIR)/iso/boot/isolinux/	
+	cp $(WORKDIR)/root-image/usr/lib/syslinux/isolinux.bin $(WORKDIR)/iso/boot/isolinux/
 # In case "make clean" is called, the following routine gets rid of all files created by this Makefile.
 clean:
 	rm -rf "$(WORKDIR)" "$(FULLNAME)".img "$(FULLNAME)".iso
 
-refresh: overlay boot-files syslinux	
-	touch "$(FULLNAME)".iso	
+refresh: overlay boot-files syslinux
+	touch "$(FULLNAME)".iso
 	rm "$(FULLNAME)".iso
 	mkarchiso -v -p syslinux iso "$(WORKDIR)" "$(FULLNAME)".iso
 

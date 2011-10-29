@@ -36,7 +36,7 @@ packer -Su
 echo "Updating ArchBang Packages . . ."
 echo
 cd /tmp
-wget -q $URL 
+wget -q $URL
 echo "Fetching . . ."
 old=$(head -1 /etc/archbang/updater.conf)
 new=$(head -1 /tmp/update.conf)

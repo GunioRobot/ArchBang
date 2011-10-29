@@ -582,7 +582,7 @@ if [ -n "$S_NEXTITEM" ]; then
 			;;
 		"*")
 			exit 0 ;;
-		
+
 	esac
 }
 
@@ -749,9 +749,9 @@ select_mirror() {
 # params: none
 # returns: 1 on error
 prepare_pacman() {
-    
+
         local serverurl="${FILE_URL}"
-   
+
 
     # Setup a pacman.conf in /tmp
     cat << EOF > /tmp/pacman.conf
@@ -834,7 +834,7 @@ installpkg() {
     auto_fstab
     auto_locale
     DIALOG --infobox "Writing network configuration..." 6 40
-    auto_network 
+    auto_network
 }
 
 hd_config()
@@ -893,7 +893,7 @@ if [ "$?" -eq "0" ]; then
     echo "Installing Plymouth . . ."
     zenity --warning --text "Remember to put the word \"splash\" when we give you an option to edit the Grub Extra config file"!
     pacman -Uf $PLYMOUTH --noconfirm --noprogressbar -r $DESTDIR  &>/dev/null
-    rm -f $DESTDIR/usr/share/plymouth/arch-logo.png 
+    rm -f $DESTDIR/usr/share/plymouth/arch-logo.png
     cp /src/arch-logo.png $DESTDIR/usr/share/plymouth/
 	chroot_mount
 	chroot $DESTDIR /usr/sbin/plymouth-set-default-theme solar
@@ -901,8 +901,8 @@ if [ "$?" -eq "0" ]; then
 	echo "/bin/plymouth quit --retain-splash" >> $DESTDIR/etc/rc.local
 else
     sed -i 's/plymouth//g' $DESTDIR/etc/mkinitcpio.conf
- #   touch "/tmp/noplymouth"    
-    echo 
+ #   touch "/tmp/noplymouth"
+    echo
     echo "Done."
     echo "Skipping Plymouth and proceeding ..."
 fi
@@ -1115,8 +1115,8 @@ freeze_xfs() {
 }
 
 dogrub() {
-    zenity --question --text="GRUB-Legacy is deprecated\!\nUse GRUB2 instead for better features.\n\nUse Grub-Legacy anyway?" 
-if [ "$?" -eq "0" ]; then	
+    zenity --question --text="GRUB-Legacy is deprecated\!\nUse GRUB2 instead for better features.\n\nUse Grub-Legacy anyway?"
+if [ "$?" -eq "0" ]; then
     get_grub_map
     local grubmenu="$DESTDIR/boot/grub/menu.lst"
     bootdev=""
@@ -1278,9 +1278,9 @@ pacman -Uf $GRUBPKG --noconfirm --noprogressbar -r $DESTDIR  &>/dev/null
             subdir=/boot
             bootdev=$PART_ROOT
         fi
-     
+
             grubdev=$(mapdev $bootdev)
-        
+
             if [ "$grubdev" != "" ]; then
             cp $DESTDIR/boot/grub/grub.cfg /tmp/.grub.cfg
             # remove the default entries by truncating the file at our little tag (set default)
@@ -1321,7 +1321,7 @@ pacman -Uf $GRUBPKG --noconfirm --noprogressbar -r $DESTDIR  &>/dev/null
     # A switch is needed if complex $bootdev is used!
     # - It doesn't make sense to present device list, if raid or raid+lvm is used for $bootdev.
     # - LVM $bootdev needs the MBR of a device and cannot be used itself as $bootdev
-    
+
     DIALOG --infobox "Installing the GRUB2 bootloader..." 0 0
     # freeze and unfreeze xfs filesystems to enable grub2 installation on xfs filesystems
     freeze_xfs
@@ -1340,7 +1340,7 @@ DEVS=$(finddisks _)
     if [ "$DEVS" = "" ]; then
         DIALOG --msgbox "No hard drives were found" 0 0
         return 1
-    fi   
+    fi
 DIALOG --menu "Select the boot device where the GRUB2 bootloader will be installed (usually the MBR [like /dev/sda] and not a partition)." 14 55 7 $DEVS 2>$ANSWER || return 1
     ROOTDEV=$(cat $ANSWER)
     chroot_mount
@@ -1373,7 +1373,7 @@ extra_grub()
 	clear
 	echo "Performing extra Grub Stuff ..."
 	chroot_mount
-	chroot $DESTDIR /sbin/grub-mkconfig -o /boot/grub/grub.cfg 
+	chroot $DESTDIR /sbin/grub-mkconfig -o /boot/grub/grub.cfg
 	chroot_umount
 	rm -rf ${DESTDIR}/src &>/dev/null
 }
@@ -1611,13 +1611,13 @@ configure_system()
     ## END POSTPROCESSING ##
     extra_config
     S_CONFIG=1
-    
+
 }
 
 extra_config()
 {
 clear
-echo 
+echo
 echo
 cp -a /usr/bin/chimera ${DESTDIR}/usr/bin/
 rm -f ${DESTDIR}/usr/bin/ab-install

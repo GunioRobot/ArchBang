@@ -10,7 +10,7 @@ if [ -e /home/$usr2 ];then
   echo "WARNING: User already exists! Select a new name."
   echo "Press enter to continue..."
   read
-  exit 
+  exit
 fi
   echo "Password :"
   useradd -m -s /bin/bash $usr2
@@ -37,7 +37,7 @@ fi
   rm /home/$usr2/.bash_profile
   rm /home/$usr2/.config/autostart/release.desktop
   rm /home/$usr2/Desktop/Cp2RAM.desktop
-  rm /home/$usr2/Desktop/Install.desktop	
+  rm /home/$usr2/Desktop/Install.desktop
   chown $usr2 /home/$usr2
   chgrp $usr2 /home/$usr2
 else

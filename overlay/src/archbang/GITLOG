@@ -1,7 +1,7 @@
 2010-05-31  pdg <pdg@archlinux.us>
 
 	* overlay/etc/skel/.config/ob-autostart/config,
-	overlay/etc/skel/.config/ob-autostart/config.pdg, packages.list: 
+	overlay/etc/skel/.config/ob-autostart/config.pdg, packages.list:
 	xfce4 power manager brought back
 
 2010-05-30  pdg <pdg@archlinux.us>
@@ -48,7 +48,7 @@
 	overlay/src/grub2/grub, overlay/src/pkgs/packages.extra,
 	overlay/src/slim/themes/genbang/slim.theme,
 	overlay/usr/bin/ab-install, overlay/usr/bin/mvuser.sh,
-	packages.list, packages.list.aur, scripts/fetch-pkg.sh: 
+	packages.list, packages.list.aur, scripts/fetch-pkg.sh:
 	archbang-artwork integration, new themes & layout, fixed sudoers and
 	oblogout
 
@@ -81,7 +81,7 @@
 
 2010-05-26  pdg <pdg@archlinux.us>
 
-	* packages.list.aur, scripts/aurscript.sh, scripts/fetch-pkg.sh: 
+	* packages.list.aur, scripts/aurscript.sh, scripts/fetch-pkg.sh:
 	aurscript to force overwrite existing package
 
 2010-05-26  pdg <pdg@archlinux.us>
@@ -6061,7 +6061,7 @@
 	er-manager.xml, overlay/etc/sudoers,
 	overlay/src/kms/mkinitcpio.conf.intel,
 	overlay/src/kms/mkinitcpio.conf.radeon,
-	overlay/src/nvidia-post-install.sh, overlay/usr/bin/ab-install: 
+	overlay/src/nvidia-post-install.sh, overlay/usr/bin/ab-install:
 	plymouth added
 
 2010-05-24  pdg <pdg@archlinux.us>
@@ -6083,12 +6083,12 @@
 
 2010-05-24  pdg <pdg@archlinux.us>
 
-	* overlay/src/grub2/40_custom, overlay/usr/bin/ab-install: 
+	* overlay/src/grub2/40_custom, overlay/usr/bin/ab-install:
 	grub-legacy added back by request
 
 2010-05-24  pdg <pdg@archlinux.us>
 
-	* overlay/src/nvidia-post-install.sh, overlay/usr/bin/ab-install: 
+	* overlay/src/nvidia-post-install.sh, overlay/usr/bin/ab-install:
 	fixing post install nvidia script
 
 2010-05-24  pdg <pdg@archlinux.us>
@@ -6112,7 +6112,7 @@
 
 2010-05-23  pdg <pdg@archlinux.us>
 
-	* boot-files/isolinux/isolinux.cfg, overlay/usr/bin/ab-install: 
+	* boot-files/isolinux/isolinux.cfg, overlay/usr/bin/ab-install:
 	ab-install fixes ...
 
 2010-05-23  pdg <pdg@archlinux.us>
@@ -6168,7 +6168,7 @@
 
 2010-05-23  pdg <pdg@archlinux.us>
 
-	* PKGBUILDs/abiword-light-PKGBUILD, PKGBUILDs/adeskbar-PKGBUILD: 
+	* PKGBUILDs/abiword-light-PKGBUILD, PKGBUILDs/adeskbar-PKGBUILD:
 	added extra PKGBUILDs
 
 2010-05-23  pdg <pdg@archlinux.us>

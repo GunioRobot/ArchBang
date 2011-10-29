@@ -218,7 +218,7 @@ ck_status() {
     status_started
   else
     status_stopped
-  fi		
+  fi
 }
 
 ###############################

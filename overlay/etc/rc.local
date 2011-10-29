@@ -22,14 +22,14 @@ echo
 if (lspci | grep VGA | grep nVidia &> /dev/null); then
 	echo -e "\e[01;34mnVidia graphic card was detected."
 	echo
-	echo	
+	echo
 	echo
 	echo
 	echo -e "\e[01;31mPlease wait ..."
 	echo
 	echo
 #	echo -e "\e[01;33mYou can choose to use the Open source \"nv\" driver (http://xorg.freedesktop.org/wiki/nv)."
-	
+
 #	echo -e "\e[01;36mWould you like to use the proprietary driver? (Y/N): ";
 #	read REPLY
 #	if [[ "$REPLY" =~ ^[yY] ]]; then

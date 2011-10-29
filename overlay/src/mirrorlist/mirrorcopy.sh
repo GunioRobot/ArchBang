@@ -1,5 +1,5 @@
 #!/bin/bash
-#Copy Mirrorlist 
+#Copy Mirrorlist
 DESTDIR="/mnt"
 clear
 echo

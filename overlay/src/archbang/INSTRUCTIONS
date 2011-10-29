@@ -21,7 +21,7 @@ $ tar xvf archiso-git.tar.gz
 $ cd archiso-git
 $ makepkg -sci PKGBUILD
 
-This will install the archiso-git package. 
+This will install the archiso-git package.
 
 (b) Build archiso-git by cloning GIT manually
 
@@ -54,13 +54,13 @@ GETTING AUR PACKAGES
 
 (a) aurscript.sh
 
-In the directory archbang/scripts  you will find aurscript.sh. Run it as root and it should automatically download and compile the packages for you. 
+In the directory archbang/scripts  you will find aurscript.sh. Run it as root and it should automatically download and compile the packages for you.
 Next add this to your /etc/pacman.conf as root:
 
 [custom]
 Server = file:///path/to/your/AUR/packages
 
-(b) Using packer 
+(b) Using packer
 
 Run:
 
@@ -108,10 +108,10 @@ Run as root or use sudo if you prefer.
 
 # make all
 
-Wait till it pulls in needed packages and dependencies. It depends on your download speed how fast the make process will complete. 
+Wait till it pulls in needed packages and dependencies. It depends on your download speed how fast the make process will complete.
 
 When it's done you will have an archbang-$ver.iso in your archbang directory. You may remove the archbangftw directory.
 
 # rm -rf archbangftw/
 
-Now you can burn the ISO on a disk or dd to an USB or use in a virtualbox and check it out! 
+Now you can burn the ISO on a disk or dd to an USB or use in a virtualbox and check it out!
